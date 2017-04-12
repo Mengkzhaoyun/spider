@@ -6,9 +6,9 @@ var async = require('async');
 var iconv = require('iconv-lite');
 
 var i = 0;
-var imagesFolder = "C:/Libraries/Pictures";
+var imagesFolder = "Z:/Downloads";
 var host = "http://zhainanshe.info";
-var url = "http://zhainanshe.info/luyilu/1700.html";
+var url = "http://zhainanshe.info/tuinvlang/1513.html";
 //初始url 
 
 function fetchPage(x) {     //封装了一层函数
@@ -68,7 +68,7 @@ function startRequest(x) {
             str = encodeURI(str1[0]);
             //这是亮点之一，通过控制I,可以控制爬取多少篇文章.
             if (i <= 500) {
-                startRequest(str);
+                return startRequest(str);
             }
             else {
                 console.log("spider stop")
@@ -141,7 +141,7 @@ function createdFolder($, news_title, callback) {
     var news_folder = imagesFolder + "/" + news_title;
     var news_index = $('li.active span').text().trim();
     var flag = news_index == "1";
-    if(news_index=="17"){
+    if (news_index == "14") {
         var asss = 1;
     }
     if (flag) {
