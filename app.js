@@ -6,9 +6,10 @@ var async = require('async');
 var iconv = require('iconv-lite');
 
 var i = 0;
+var imagename = 0;
 var imagesFolder = "Z:/Downloads";
 var host = "http://zhainanshe.info";
-var url = "http://zhainanshe.info/tuinvlang/1513.html";
+var url = "http://zhainanshe.info/luyilu/1760.html";
 //初始url 
 
 function fetchPage(x) {     //封装了一层函数
@@ -123,7 +124,7 @@ function savedImg($, news_title) {
         $('.article-content img').each(function (index, item) {
             var img_src = host + $(this).attr('src'); //获取图片的url
             var img_title = img_src.split('/')[img_src.split('/').length - 1];
-            var img_filename = img_title;
+            var img_filename = img_title.split('-')[1];
 
             //采用request模块，向服务器发起一次请求，获取图片资源
             request.head(img_src, function (err, res, body) {
